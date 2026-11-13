@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="DJ MUSIC ROOM에서 나만의 취향에 맞는 새로운 음악을 만나보세요."
+    />
+    <meta name="theme-color" content="#080910" />
+    <title>DJ MUSIC ROOM — 나만의 음악을 발견하세요</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <div class="page-glow page-glow--violet" aria-hidden="true"></div>
+    <div class="page-glow page-glow--blue" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="DJ MUSIC ROOM 홈">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </span>
+        <span class="brand-name">DJ MUSIC <span>ROOM</span></span>
+      </a>
+      <nav class="main-nav" aria-label="주요 메뉴">
+        <a class="nav-link nav-link--active" href="#discover">발견</a>
+        <a class="nav-link" href="#mixes">둘러보기</a>
+      </nav>
+      <a class="profile-button" href="#mixes">
+        <span class="profile-dot" aria-hidden="true"></span>
+        <span>나만의 공간</span>
+      </a>
+    </header>
+
+    <main>
+      <section class="hero" id="discover">
+        <div class="hero-kicker"><span class="live-dot"></span> 오늘의 취향을 깨우는 사운드</div>
+        <h1>나만의 음악을<br /><span>발견하세요</span></h1>
+        <p class="hero-copy">당신의 취향에 맞는 새로운 음악을 만나보세요.</p>
+
+        <form class="search-panel" id="search-form" role="search">
+          <span class="search-spark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 2.8 13.8 10l7.4 2-7.4 1.9-1.8 7.3-1.9-7.3L2.8 12l7.3-2L12 2.8Z" />
+            </svg>
+          </span>
+          <label class="sr-only" for="music-search">듣고 싶은 음악을 입력하세요</label>
+          <input
+            id="music-search"
+            name="q"
+            type="search"
+            placeholder="어떤 음악을 듣고 싶으신가요?"
+            autocomplete="off"
+          />
+          <button class="search-button" type="submit">
+            <span>음악 찾기</span>
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M3.5 10h13m-5-5 5 5-5 5" />
+            </svg>
+          </button>
+        </form>
+
+        <div class="genre-row" aria-label="인기 장르">
+          <span class="genre-label">장르별로 둘러보기</span>
+          <div class="genre-tags">
+            <button class="genre-tag" type="button" data-genre="EDM">EDM</button>
+            <button class="genre-tag" type="button" data-genre="HOUSE">HOUSE</button>
+            <button class="genre-tag" type="button" data-genre="TECHNO">TECHNO</button>
+            <button class="genre-tag" type="button" data-genre="TRANCE">TRANCE</button>
+            <button class="genre-tag" type="button" data-genre="FUTURE BASS">FUTURE BASS</button>
+            <button class="genre-tag" type="button" data-genre="PROGRESSIVE HOUSE">PROGRESSIVE HOUSE</button>
+          </div>
+        </div>
+        <div class="search-message" id="search-message" aria-live="polite"></div>
+        <div class="hero-orbit hero-orbit--one" aria-hidden="true"></div>
+        <div class="hero-orbit hero-orbit--two" aria-hidden="true"></div>
+      </section>
+
+      <section class="assistant-section" aria-labelledby="assistant-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-eyebrow">GEMINI AI DJ</p>
+            <h2 id="assistant-title">취향을 말하면 <span>음악을 찾아드려요</span></h2>
+          </div>
+        </div>
+        <div class="assistant-panel">
+          <div class="chat-messages" id="chat-messages" aria-live="polite">
+            <p class="chat-bubble chat-bubble--assistant">어떤 분위기의 음악을 찾고 계세요? 취향을 알려주시면 곡을 추천해 드릴게요.</p>
+          </div>
+          <form class="chat-form" id="chat-form">
+            <label class="sr-only" for="chat-input">AI DJ에게 음악 추천 요청</label>
+            <input id="chat-input" name="message" type="text" maxlength="500" placeholder="예: 비 오는 밤에 듣기 좋은 잔잔한 일렉트로닉" autocomplete="off" required />
+            <button class="search-button" type="submit">추천받기</button>
+          </form>
+          <p class="chat-status" id="chat-status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="mixes-section" id="mixes">
+        <div class="section-heading">
+          <div>
+            <p class="section-eyebrow">당신을 위한 추천</p>
+            <h2>새로운 음악을 <span>만나보세요</span></h2>
+          </div>
+          <a class="see-all" href="#mixes">전체 보기 <span aria-hidden="true">↗</span></a>
+        </div>
+
+        <div class="mix-grid" id="mix-grid"></div>
+        <p class="empty-state" id="empty-state" hidden>추천 음악을 찾지 못했어요. 다른 분위기나 장르로 검색해 보세요.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>비트와 비트 사이, 당신만의 순간을 위해.</span>
+      <span class="footer-note"><span class="live-dot"></span> 나만의 음악 공간</span>
+    </footer>
+
+    <aside class="player" aria-label="음악 플레이어">
+      <div class="player-track">
+        <div class="player-art" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="player-copy">
+          <strong id="player-title">곡을 검색해 주세요</strong>
+          <span id="player-artist">검색 결과에서 선택</span>
+        </div>
+      </div>
+      <div class="player-controls">
+        <button class="main-play" id="main-play" type="button" aria-label="미리 듣기 재생" disabled>
+          <svg class="icon-play" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m7 4.8 8 5.2-8 5.2V4.8Z" /></svg>
+          <svg class="icon-pause" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7 5v10M13 5v10" /></svg>
+        </button>
+        <div class="player-progress">
+          <div class="progress-track"><span id="progress-fill"></span></div>
+          <div class="progress-times"><span id="current-time">0:00</span><span id="audio-duration">미리 듣기</span></div>
+        </div>
+      </div>
+      <div class="player-status"><span class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>지금 재생 중</span></div>
+    </aside>
+    <audio id="audio-player" preload="none"></audio>
+  </body>
+</html>
